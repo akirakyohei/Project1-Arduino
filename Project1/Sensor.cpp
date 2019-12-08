@@ -14,7 +14,7 @@ Sensor::Sensor(uint8_t oPin,uint8_t sPin,uint8_t tPin){
 
 float Sensor::getTemperatureValue(){
  int temperatureValue=getAVG(tem_pin);
-  return  temperatureValue/2.048;
+  return  temperatureValue*500.0/1024;
 }
 
 
@@ -33,7 +33,7 @@ int Sensor::getAVG(uint8_t pin){
   int value =0;
   for(int i=0;i<10;i++){
     value+=analogRead(pin);
-    delay(10);
+    delay(60);
   }
    return value/10;
 }

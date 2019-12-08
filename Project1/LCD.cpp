@@ -25,6 +25,7 @@ void LCD::update(float valueOfSegmentOne, float valueOfSegmentTwo, float valueOf
     
 }
 void LCD::show(){
+<<<<<<< HEAD:Project1_2/LCD.cpp
   lcd->clear();
   lcd->setCursor(0,0);
   lcd->print("T:");
@@ -38,6 +39,20 @@ void LCD::show(){
   lcd->setCursor(5,1);
   lcd->print("O:");
   lcd->print(round(valueOfSegmentThree));
+=======
+  //lcd->clear();
+  lcd->setCursor(0,0);
+  lcd->print("T:");
+  lcd->print((int)valueOfSegmentOne);
+  lcd->print("oC");
+  lcd->setCursor(9,0);
+  lcd->print("S:");
+  lcd->print(valueOfSegmentTwo);
+  lcd->print("%");
+  lcd->setCursor(5,1);
+  lcd->print("O:");
+  lcd->print((int)valueOfSegmentThree);
+>>>>>>> fc845271f3a7814a93a2bdb5eae3d35f6bd861d0:Project1/LCD.cpp
   lcd->print("%");
    
    /* lcd->setCursor(9,0);

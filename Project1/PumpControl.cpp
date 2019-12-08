@@ -8,7 +8,6 @@
  this->speed=speed;
  init();
  };
-
  
  PumpControl::PumpControl(uint8_t pin,uint8_t maxSoil,uint8_t minSoil){
    this->pin=pin;
@@ -17,21 +16,13 @@
     this->speed=255;
     init();
  };
- 
-  PumpControl::PumpControl(uint8_t pin,uint8_t speed){
-   this->pin=pin;
-   this->maxSoil=60;
-   this->minSoil=40;
-   this->speed=speed ;
-   init();
-};
-PumpControl::PumpControl(uint8_t pin){
+ PumpControl::PumpControl(uint8_t pin){
    this->pin=pin;
    this->maxSoil=60;
    this->minSoil=40;
    this->speed=255;
    init();
-};
+ };
  void PumpControl::init(){
    digitalWrite(pin,0);
    state=0;
@@ -67,3 +58,9 @@ PumpControl::PumpControl(uint8_t pin){
    
  };
  
+ //update after
+ void PumpControl::setMaxSoil(uint8_t maxValue);
+ void PumpControl::setMinSoil(uint8_t minValue);
+ uint8_t PumpControl::getSpeed();
+ uint8_t PumpControl::getMaxSoil();
+ uint8_t PumpControl::getMinSoil();
