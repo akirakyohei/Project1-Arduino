@@ -1,10 +1,10 @@
 #include <Arduino_FreeRTOS.h>
 #include <semphr.h>
 #include "LCD.h"
-#include "shedControl.cpp"
-#include "lightControl.cpp"
+#include "ShedControl.h"
+#include "LightControl.h"
 #include "Sensor.h"
-#include "PumpControl.cpp"
+#include "PumpControl.h"
 #include <String.h>
 SemaphoreHandle_t xSerialSemaphore;
 
@@ -20,7 +20,7 @@ float t=0;
 
 
 LCD lcd(8,7,6,5,4,3,"0","0","0") ;
-shedControl shed;
+ShedControl shed;
 PumpControl pump;
 Sensor sensor;
 lightControl light;

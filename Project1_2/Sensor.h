@@ -1,19 +1,20 @@
-
 #ifndef Sensor_h
 #define Sensor_h
-#include"Arduino.h"
+#include <inttypes.h>
+
 
 
 class Sensor{
  private:
  uint8_t tem_pin;
- uint8_t hum_pin;
+ uint8_t soi_pin;
 uint8_t op_pin;
   public:
-  void init(uint8_t oPin,uint8_t hPin,uint8_t tPin);
+    Sensor(uint8_t oPin,uint8_t sPin,uint8_t tPin);
     float getTemperatureValue();
-    float getHumidityValue();
+    float getSoilMoistValue();
     float getOpticalValue();
+    int getAVG(uint8_t pin);
 };
 
 #endif
