@@ -11,6 +11,7 @@
 #define opt_pin A1
 #define tem_pin A2
 
+#define MAX_TO_RESET 1000000
 #define INTERVAL_SENSOR_OFF 400
 #define INTERVAL_LIGHT_OFF 400
 #define INTERVAL_PUMP_OFF 400
@@ -50,6 +51,10 @@ void setInit(){
 };
 
 void multiTask(){
+  //reset when max memory
+ if(currentTime>=MAX_TO_RESET){
+  asm volatile ( "jmp 0");  
+ }
 //task sensor
 if(currentTime-preTimeSensor>=INTERVAL_SENSOR_OFF){
   readSensor();
