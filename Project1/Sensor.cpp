@@ -33,7 +33,7 @@ int Sensor::getAVG(uint8_t pin){
   int value =0;
   for(int i=0;i<10;i++){
     value+=analogRead(pin);
-    delay(60);
+    delay(10);
   }
    return value/10;
 }

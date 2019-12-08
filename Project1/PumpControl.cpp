@@ -57,10 +57,3 @@
    }
    
  };
- 
- //update after
- void PumpControl::setMaxSoil(uint8_t maxValue);
- void PumpControl::setMinSoil(uint8_t minValue);
- uint8_t PumpControl::getSpeed();
- uint8_t PumpControl::getMaxSoil();
- uint8_t PumpControl::getMinSoil();

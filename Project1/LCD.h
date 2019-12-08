@@ -7,10 +7,7 @@
 class LCD
 {
 private:
-<<<<<<< HEAD:Project1_2/LCD.h
-=======
     unsigned long time;
->>>>>>> fc845271f3a7814a93a2bdb5eae3d35f6bd861d0:Project1/LCD.h
     float valueOfSegmentOne;
     float valueOfSegmentTwo;
     float valueOfSegmentThree;
