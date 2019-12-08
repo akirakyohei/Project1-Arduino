@@ -16,6 +16,13 @@
     this->speed=255;
     init();
  };
+  PumpControl::PumpControl(uint8_t pin,uint8_t speed ){
+   this->pin=pin;
+   this->maxSoil=60;
+   this->minSoil=40;
+   this->speed=speed;
+   init();
+ };
  PumpControl::PumpControl(uint8_t pin){
    this->pin=pin;
    this->maxSoil=60;

@@ -1,6 +1,5 @@
 #ifndef LightControl_h
 #define LightControl_h
-
 #include <stdio.h>
 #include <inttypes.h>
 
