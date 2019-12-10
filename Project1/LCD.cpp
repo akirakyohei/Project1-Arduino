@@ -38,7 +38,7 @@ void LCD::show(){
   lcd->setCursor(5,1);
   lcd->print("O:");
   lcd->print(round(valueOfSegmentThree));
-  
+  lcd->print("%");
    /* lcd->setCursor(9,0);
     lcd->print("T:");
     lcd->print(valueOfSegmentTwo);

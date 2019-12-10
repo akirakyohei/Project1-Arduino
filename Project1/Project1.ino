@@ -11,7 +11,6 @@
 #define opt_pin A1
 #define tem_pin A2
 
-#define MAX_TO_RESET 1000000
 #define INTERVAL_SENSOR_OFF 400
 #define INTERVAL_LIGHT_OFF 400
 #define INTERVAL_PUMP_OFF 400
@@ -22,11 +21,11 @@ float opticalValue ;
 float temperatureValue ;
 float soilMoistValue ;
 
-long currentTime;
-long preTimeSensor; 
-long preTimeShed;
-long preTimePump;
-long preTimeLight;
+unsigned long currentTime;
+unsigned long preTimeSensor; 
+unsigned long preTimeShed;
+unsigned long preTimePump;
+unsigned long preTimeLight;
 
 LCD lcd(8,7,6,5,4,3,0,0,0);
 LightControl light(2);
@@ -43,7 +42,6 @@ void readSensor(){
 }
 
 void setInit(){
- readSensor();
  preTimeSensor=0;
  preTimeShed=0;
  preTimePump=0;
@@ -52,8 +50,8 @@ void setInit(){
 
 void multiTask(){
   //reset when max memory
- if(currentTime>=MAX_TO_RESET){
-  asm volatile ( "jmp 0");  
+ if(currentTime<preTimeShed){
+  setInit();
  }
 //task sensor
 if(currentTime-preTimeSensor>=INTERVAL_SENSOR_OFF){
@@ -83,9 +81,10 @@ if(currentTime-preTimeShed>=INTERVAL_SHED_OFF){
 }
 
 void setup(){
+  setInit();
   Serial.begin(9600);
   while(!Serial);
-  setInit();
+  readSensor();
   };
 void loop(){
  currentTime=millis();
