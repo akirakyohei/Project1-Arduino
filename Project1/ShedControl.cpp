@@ -67,8 +67,6 @@ if (temperatureValue > maxTem && state!=-1){
        Serial.print("Shed OFF ");
    disable();
     state=-1;
-    Serial.print("state");
-Serial.println(state);
     currentRound&=0;
   }
  

@@ -32,35 +32,27 @@
  };
  void PumpControl::init(){
    digitalWrite(pin,0);
-   state=0;
-   
  };
  void PumpControl::setSpeed(uint8_t s){
   if(0<=s)
    this->speed=s;
  };
-  void PumpControl:: enable(){
-  for(int i=0;i<NUMOFTIME;i++){
+  void PumpControl:: enable(){ 
     analogWrite(pin,speed);
-  }
   };
   void PumpControl::disable(){
     analogWrite(pin,0);
   };
   
  void PumpControl::checkUp(float soilMoistValue,float opticalValue){
-   if(soilMoistValue < minSoil & opticalValue > DARK_LIGHT){
+   if(soilMoistValue < minSoil && opticalValue > DARK_LIGHT &&state==0){
       Serial.print("Pump ON ");
+      state=1;
      enable();
-     state=1;
-   }else if(soilMoistValue > maxSoil| opticalValue<DARK_LIGHT){
+   }else if( (soilMoistValue > maxSoil|| opticalValue<DARK_LIGHT) && state==1){
      Serial.print("Pump OFF ");
      disable();
      state=0;
-   }else{
-     if(state==1){
-    enable();  
-     }
    }
    
  };

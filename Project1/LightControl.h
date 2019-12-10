@@ -9,7 +9,6 @@ class LightControl{
 private:
 uint8_t pin;
 uint8_t state;
-
 public:
 LightControl(uint8_t pin);
 void checkUp(float opticalValue);

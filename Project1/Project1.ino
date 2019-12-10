@@ -34,9 +34,9 @@ PumpControl pump(13,200);
 Sensor sensor(opt_pin,soi_pin,tem_pin);
 
 void readSensor(){
-  opticalValue=sensor.getOpticalValue();
-  soilMoistValue=sensor.getSoilMoistValue();
-  temperatureValue=sensor.getTemperatureValue();   
+  opticalValue =sensor.getOpticalValue();
+  soilMoistValue =sensor.getSoilMoistValue();
+  temperatureValue =sensor.getTemperatureValue();   
   lcd.update(temperatureValue,soilMoistValue,opticalValue);
   lcd.show();
 }
@@ -49,7 +49,7 @@ void setInit(){
 };
 
 void multiTask(){
-  //reset when max memory
+  //reset when max milli
  if(currentTime<preTimeShed){
   setInit();
  }

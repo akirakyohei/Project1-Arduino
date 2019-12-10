@@ -19,9 +19,9 @@ private:
   Stepper *stepper;
   int8_t state;
   uint8_t currentStep;
-  uint8_t currentRound;
+  unsigned int currentRound;
 public:
-    ShedControl(uint8_t pin1,uint8_t pin2,uint8_t pin3,uint8_t pin4,unsigned int numOfRound,uint8_t maxTem);
+  ShedControl(uint8_t pin1,uint8_t pin2,uint8_t pin3,uint8_t pin4,unsigned int numOfRound,uint8_t maxTem);
   ShedControl(uint8_t pin1,uint8_t pin2,uint8_t pin3,uint8_t pin4,unsigned int numOfRound);
   ShedControl(uint8_t pin1,uint8_t pin2,uint8_t pin3,uint8_t pin4);
   void init();
