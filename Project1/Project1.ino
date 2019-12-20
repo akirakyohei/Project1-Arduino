@@ -1,3 +1,8 @@
+//phan biet sang toi 40
+//do am dat trong khoang 60 40
+// nhiet do thich hop <= 38
+
+
 #include "LCD.h"
 #include "ShedControl.h"
 #include "LightControl.h"
@@ -31,17 +36,21 @@ LCD lcd(8,7,6,5,4,3,0,0,0);
 LightControl light(2);
 ShedControl shed(9,10,11,12,3);
 PumpControl pump(13,200);
-Sensor sensor(opt_pin,soi_pin,tem_pin);
+Sensor sensor;
 
 void readSensor(){
-  opticalValue =sensor.getOpticalValue();
-  soilMoistValue =sensor.getSoilMoistValue();
-  temperatureValue =sensor.getTemperatureValue();   
+  opticalValue =sensor.getOpticalValue(opt_pin);
+  soilMoistValue =sensor.getSoilMoistValue(soi_pin);
+  temperatureValue =sensor.getTemperatureValue(tem_pin);   
   lcd.update(temperatureValue,soilMoistValue,opticalValue);
   lcd.show();
 }
 
 void setInit(){
+  pinMode(soi_pin,OUTPUT);
+   pinMode(tem_pin,OUTPUT);
+    pinMode(opt_pin,OUTPUT);
+  
  preTimeSensor=0;
  preTimeShed=0;
  preTimePump=0;

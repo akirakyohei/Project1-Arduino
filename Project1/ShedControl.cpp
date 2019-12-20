@@ -6,7 +6,7 @@ this->pin1=pin1;
 this->pin2=pin2;
 this->pin3=pin3;
 this->pin4=pin4;
-this->maxTem=20;
+this->maxTem=38;
 this->numOfRounds=numOfRound;
 init();
 };
