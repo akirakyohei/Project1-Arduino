@@ -75,7 +75,7 @@ if(currentTime-preTimeLight>=INTERVAL_LIGHT_OFF){
 //task pump
 if(currentTime-preTimePump>=INTERVAL_PUMP_OFF){
   preTimePump=currentTime;
-    pump.checkUp(soilMoistValue,opticalValue);
+    pump.checkUp(soilMoistValue);
   preTimePump=millis();
 }
 //task shed

@@ -44,12 +44,12 @@
     analogWrite(pin,0);
   };
   
- void PumpControl::checkUp(float soilMoistValue,float opticalValue){
-   if(soilMoistValue < minSoil && opticalValue > DARK_LIGHT &&state==0){
+ void PumpControl::checkUp(float soilMoistValue){
+   if(soilMoistValue < minSoil &&state==0){
       Serial.print("Pump ON ");
       state=1;
      enable();
-   }else if( (soilMoistValue > maxSoil|| opticalValue<DARK_LIGHT) && state==1){
+   }else if( (soilMoistValue > maxSoil) && state==1){
      Serial.print("Pump OFF ");
      disable();
      state=0;

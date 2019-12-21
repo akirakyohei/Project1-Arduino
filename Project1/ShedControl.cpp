@@ -49,18 +49,12 @@ stepper->step(mode*STEPPERREVOLUTION);
     }
 
     void ShedControl::checkUp(float temperatureValue){
-Serial.print("state");
-Serial.println(state);
 if (temperatureValue > maxTem && state!=-1){
      Serial.print("Shed ON 1 ");
   enable(1);
   currentStep=currentStep+1;
-  Serial.print("currentStep");
-  Serial.println(currentStep);
   if(currentStep==NUMOFTIME){
     currentRound=currentRound+1;
-    Serial.print("currentRound");
-    Serial.println(currentRound);
     currentStep&=0x00;
   }
   if(currentRound==numOfRounds){

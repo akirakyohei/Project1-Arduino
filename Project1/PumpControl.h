@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <inttypes.h>
 
-#define DARK_LIGHT 40
 class PumpControl{
 private:
   uint8_t pin;
@@ -22,6 +21,6 @@ public:
   void setSpeed(uint8_t s);
   void enable();
   void disable();
-  void checkUp(float soilMoistValue,float opticalValue);
+  void checkUp(float soilMoistValue);
 };
 #endif
